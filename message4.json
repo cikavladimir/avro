@@ -1,0 +1,21 @@
+{
+  "enterpriseEventEnvelope": {
+      "eventId": "123e4567-e123-1234b-57-444333",
+      "eventPrefix": "customer",
+      "eventQualifier": "SAMPLE1.event",
+      "eventAction": "create",
+      "eventOccurrenceTimestamp": "2017-07-23T16:03:04Z",
+      "providerId": "ASVSAMPLE1",
+      "eventEnvelopeVersion": "1.0",
+      "domainPayloadVersion": "1.0"
+  },
+  "domainPayload": {
+      "accountReferenceId": "ABC123",
+      "timestamp": 12345681,
+      "messageTypeIndicator": "1110",
+      "cardDataInputMode": "1",
+      "cardInputCapability": "U",
+      "cardLastFourDigits": "0011"
+
+  }   
+}

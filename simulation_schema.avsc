@@ -1,0 +1,97 @@
+{
+   "type":"record",
+   "name":"DebitTransaction",
+   "namespace":"com.capitalone.eci.debit.transaction",
+   "doc":"This event is triggered when a transaction comes from the NRT debit stream",
+   "fields":[ {
+         "name":"enterpriseEventEnvelope",
+         "doc":"EventEnvelope Attributes that will identify the event enterprise wide",
+         "type":{
+            "type":"record",
+            "name":"EnterpriseEventEnvelope",
+            "fields" : [
+               {
+                  "name":"eventId",
+                  "type":"string",
+                  "doc":"Global unique identifier assigned to each event"
+               },
+               {
+                  "name":"eventPrefix",
+                  "type":"string",
+                  "doc":"Namespace assigned to the initiating product (or domain) for the event. (e.g. Credit-Card, Customer, deposit, enterprise, commercial, identity, loan)"
+               },
+               {
+                  "name":"eventQualifier",
+                  "type":"string",
+                  "doc":"Namespace which describes one or more qualifiers for the categories and sub-categories of the product domains. (Eg: profile, address, account)"
+               },
+               {
+                  "name":"eventAction",
+                  "type":"string",
+                  "doc":"Verbs that describe the action applied to the product (eventPrefix) and its categories (eventQualifier). Eg. update, create, delete"
+               },
+               {
+                  "name":"eventOccurrenceTimestamp",
+                  "type":"string",
+                  "doc":"When the event occurred in absolute or UTC time using the ISO 8601 extended format. (Eg 2017-07-23T13:03:04Z)"
+               },
+               {
+                  "name":"providerId",
+                  "type":"string",
+                  "doc":"Unique ID assigned to source application/capability. Initial values to be used here are ASVs."
+               },
+               {
+                  "name":"eventEnvelopeVersion",
+                  "type":"string",
+                  "doc":"Tracks versioning of the enterprise event envelope standard "
+               },
+               {
+                  "name":"domainPayloadVersion",
+                  "type":"string",
+                  "doc":"Tracks versioning of the domain payload"
+              } 
+            ]
+         }
+      },
+      {
+        "name": "domainPayload",
+        "type": {
+          "type": "record",
+          "name": "DomainPayLoadRecord",
+          "fields": [
+            {
+              "name": "accountReferenceId",
+              "type": "string",
+              "doc": "A token for identifying the account associated with the transaction"
+            },
+            {
+              "name": "timestamp",
+              "type": "long",
+              "logicalType": "timestamp-millis",
+              "doc": "The timestamp at which the transaction occurred"
+            },
+            {
+              "name": "messageTypeIndicator",
+              "type": "string",
+              "doc": "The MTI"
+            },
+            {
+              "name": "cardDataInputMode",
+              "type": "string",
+              "doc": "The input mode with respect to card and terminal capabilities"
+            },
+            {
+              "name": "cardInputCapability",
+              "type": "string",
+              "doc": "The input mode code indicating the card capability"
+            },
+            {
+              "name": "cardLastFourDigits",
+              "type": "string",
+              "doc": "The last four digits of the debit card used in the transaction."
+            }
+          ]
+        }
+      }
+  ]
+}
