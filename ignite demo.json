@@ -1,0 +1,176 @@
+//        EnterpriseEvent eventPrefix, providerID
+//        domainSpecificPayloadSchema cardholderBillingAmount
+//        items_5 name
+//        token_17 id
+
+
+
+SELECT 
+  e.eventPrefix, 
+  e.providerID, 
+  d.cardholderBillingAmount, 
+  i.name, 
+  t.id 
+FROM 
+  EnterpriseEvent e, 
+  domainSpecificPayloadSchema d, 
+  items_5 i, 
+  token_17 t 
+WHERE 
+  d.EnterpriseEvent_id = e.EnterpriseEvent_id 
+  AND i.domainSpecificPayloadSchema_id = d.domainSpecificPayloadSchema_id 
+  AND t.domainSpecificPayloadSchema_id = d.domainSpecificPayloadSchema_id
+
+
+
+
+{
+  "enterprise_envelope_header_details": {
+    "eventID": [
+      49,
+      50,
+      52,
+      53,
+    ],
+    "eventPrefix": "customer",
+    "eventQualifier": "sample2.event",
+    "eventAction": "create",
+    "eventOccurrenceTimestamp": 1473594553000,
+    "providerID": "ASVSAMPLE2",
+    "eventEnvelopeVersion": "1.0",
+    "domainPayloadVersion": "1.0",
+    "experimentalEnvelopeAttributesMap": null
+  },
+  "domain_payload_details": {
+    "domainMetaDataMap": {
+      "data_set": "SAMPLE2"
+    },
+    "domainPayloadDataArray": [
+
+      {
+        "cardholderBillingAmount": 2705.0,
+        "cardholderBillingFeeAmount": 0.0,
+        "processingFlags": {
+          "items": [
+            {
+              "id": "0000000001000000",
+              "name": "123"
+            },
+            {
+              "id": "0000000000000000",
+              "name": "wer"
+            }
+          ]
+        },
+        "tokenArea": {
+          "tokens": {
+            "token": [
+              {
+                "id": 713,
+                "name": null,
+                "data": "-1"
+              }
+            ]
+          }
+        }
+      },
+
+      {
+        "cardholderBillingAmount": 2706.0,
+        "cardholderBillingFeeAmount": 0.0,
+        "processingFlags": {
+          "items": [
+            {
+              "id": "0000000001000660",
+              "name": "123"
+            },
+            {
+              "id": "0000000000076700",
+              "name": "wer"
+            }
+          ]
+        },
+        "tokenArea": {
+          "tokens": {
+            "token": [
+              {
+                "id": 734,
+                "name": null,
+                "data": "-1"
+              }
+            ]
+          }
+        }
+      }
+
+
+    ]
+  }
+}
+
+
+
+
+[00:29:47] (wrn) Default Spring XML file not found (is IGNITE_HOME set?): config/default-config.xml
+Oct 06, 2017 12:29:47 AM java.util.logging.LogManager$RootLogger log
+SEVERE: Failed to resolve default logging config file: config/java.util.logging.properties
+[00:29:47]    __________  ________________ 
+[00:29:47]   /  _/ ___/ |/ /  _/_  __/ __/ 
+[00:29:47]  _/ // (7 7    // /  / / / _/   
+[00:29:47] /___/\___/_/|_/___/ /_/ /___/  
+[00:29:47] 
+[00:29:47] ver. 2.1.4#20170830-sha1:e9d5598f
+[00:29:47] 2017 Copyright(C) Apache Software Foundation
+[00:29:47] 
+[00:29:47] Ignite documentation: http://ignite.apache.org
+[00:29:47] 
+[00:29:47] Quiet mode.
+[00:29:47]   ^-- To see **FULL** console log here add -DIGNITE_QUIET=false or "-v" to ignite.{sh|bat}
+[00:29:47] 
+[00:29:47] OS: Windows 10 10.0 amd64
+[00:29:47] VM information: Java(TM) SE Runtime Environment 1.8.0_91-b14 Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 25.91-b14
+[00:29:47] Initial heap size is 256MB (should be no less than 512MB, use -Xms512m -Xmx512m).
+[00:29:47] Configured plugins:
+[00:29:47]   ^-- None
+[00:29:47] 
+[00:29:56] Message queue limit is set to 0 which may lead to potential OOMEs when running cache operations in FULL_ASYNC or PRIMARY_SYNC modes due to message queues growth on sender and receiver sides.
+[00:29:56] Security status [authentication=off, tls/ssl=off]
+[00:29:59] Performance suggestions for grid  (fix if possible)
+[00:29:59] To disable, set -DIGNITE_PERFORMANCE_SUGGESTIONS_DISABLED=true
+[00:29:59]   ^-- Enable G1 Garbage Collector (add '-XX:+UseG1GC' to JVM options)
+[00:29:59]   ^-- Specify JVM heap max size (add '-Xmx<size>[g|G|m|M|k|K]' to JVM options)
+[00:29:59]   ^-- Set max direct memory size if getting 'OOME: Direct buffer memory' (add '-XX:MaxDirectMemorySize=<size>[g|G|m|M|k|K]' to JVM options)
+[00:29:59]   ^-- Disable processing of calls to System.gc() (add '-XX:+DisableExplicitGC' to JVM options)
+[00:29:59] Refer to this page for more performance suggestions: https://apacheignite.readme.io/docs/jvm-and-system-tuning
+[00:29:59] 
+[00:29:59] To start Console Management & Monitoring run ignitevisorcmd.{sh|bat}
+[00:29:59] 
+[00:29:59] Ignite node started OK (id=0f220dcc)
+[00:29:59] Topology snapshot [ver=1, servers=1, clients=0, CPUs=4, heap=3.5GB]
+{"enterprise_envelope_header_details": {"eventID": [49, 50, 52, 53, 52, 52, 53, 55, 45, 101, 56, 57, 98, 45, 49, 50, 100, 51, 45, 97, 52, 53, 54, 45, 52, 50, 54, 54, 56, 53, 52, 52], "eventPrefix": "customer", "eventQualifier": "sample2.event", "eventAction": "create", "eventOccurrenceTimestamp": 1473594553000, "providerID": "ASVSAMPLE2", "eventEnvelopeVersion": "1.0", "domainPayloadVersion": "1.0", "experimentalEnvelopeAttributesMap": null}, "domain_payload_details": {"domainMetaDataMap": {"data_set": "SAMPLE2"}, "domainPayloadDataArray": [{"cardholderBillingAmount": 2705.0, "cardholderBillingFeeAmount": 0.0, "processingFlags": {"items": [{"id": "0000000001000000", "name": "123"}, {"id": "0000000000000000", "name": "wer"}]}, "tokenArea": {"tokens": {"token": [{"id": 713, "name": null, "data": "-1"}]}}}, {"cardholderBillingAmount": 2706.0, "cardholderBillingFeeAmount": 0.0, "processingFlags": {"items": [{"id": "0000000001000660", "name": "123"}, {"id": "0000000000076700", "name": "wer"}]}, "tokenArea": {"tokens": {"token": [{"id": 734, "name": null, "data": "-1"}]}}}]}}
+
+====================   Messages are stored in Cache   ====================
+Cache size: 9
+
+====================   SELECT * from EnterpriseEvent   ====================
+  [0, [B@120f38e6, customer, sample2.event, create, 1473594553000, ASVSAMPLE2, 1.0, 1.0, null, {org.apache.avro.util.Utf8 [idHash=2047744862, hash=-1419129053, bytes=[100, 97, 116, 97, 95, 115, 101, 116], length=8, string=data_set]=org.apache.avro.util.Utf8 [idHash=1882116496, hash=488963326, bytes=[83, 65, 77, 80, 76, 69, 50], length=7, string=SAMPLE2]}]
+
+====================   SELECT * from domainSpecificPayloadSchema   ====================
+  [1, 0, 2705.0, 0.0]
+  [5, 0, 2706.0, 0.0]
+
+====================   SELECT * from items_5   ====================
+  [2, 1, 0000000001000000, 123]
+  [6, 5, 0000000001000660, 123]
+  [3, 1, 0000000000000000, wer]
+  [7, 5, 0000000000076700, wer]
+
+====================   SELECT * from token_17   ====================
+  [8, 5, 734, null, -1]
+  [4, 1, 713, null, -1]
+
+====================   SELECT e.eventPrefix, e.providerID, d.cardholderBillingAmount, i.name, t.id FROM EnterpriseEvent e, domainSpecificPayloadSchema d, items_5 i, token_17 t WHERE d.EnterpriseEvent_id = e.EnterpriseEvent_id AND i.domainSpecificPayloadSchema_id = d.domainSpecificPayloadSchema_id AND t.domainSpecificPayloadSchema_id = d.domainSpecificPayloadSchema_id   ====================
+  [customer, ASVSAMPLE2, 2705.0, 123, 713]
+  [customer, ASVSAMPLE2, 2705.0, wer, 713]
+  [customer, ASVSAMPLE2, 2706.0, 123, 734]
+  [customer, ASVSAMPLE2, 2706.0, wer, 734]
